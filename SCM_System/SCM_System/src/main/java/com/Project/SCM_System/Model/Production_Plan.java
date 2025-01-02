@@ -1,5 +1,8 @@
 package com.Project.SCM_System.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 @Document(collection = "Production_Plan")
 public class Production_Plan {
     @Id
