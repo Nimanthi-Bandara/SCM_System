@@ -13,21 +13,21 @@ import com.Project.SCM_System.Model.Order;
 
 public class orderServiceImpl implements orderService {
     @Autowired
-    private orderRepository OrderRepository;
+    private orderRepository orderRepository;
     @Override
     public Order createOrder(Order order){
-        return OrderRepository.save(order);
+        return orderRepository.save(order);
     }
 
     @Override
-    public Order getOrderById(String OrderId){
-        Optional<Order> order = OrderRepository.findById(OrderId);
+    public Order getOrderById(String orderId){
+        Optional<Order> order = orderRepository.findById(orderId);
         return order.orElse(null);
     }
 
     @Override
     public List<Order> getAllOrders(){
-        return OrderRepository.findAll();
+        return orderRepository.findAll();
     }
 
     @Override
@@ -41,6 +41,6 @@ public class orderServiceImpl implements orderService {
 
     @Override
     public void deleteOrder(String orderId){
-        OrderRepository.deleteById(orderId);
+        orderRepository.deleteById(orderId);
     }
 }
