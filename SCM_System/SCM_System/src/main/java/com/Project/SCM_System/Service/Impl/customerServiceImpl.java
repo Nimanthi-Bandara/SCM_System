@@ -20,6 +20,29 @@ public class customerServiceImpl implements customerService{
         return customerRepository.save(customer);
     }
 
-    
+    @Override
+    public Customer getCustomerById(String custId){
+        Optional<Customer> customer = customerRepository.findById(custId);
+        return customer.orElse(null);
+    }
+
+    @Override
+    public List<Customer> getAllCustomers(){
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public Customer updateCustomer(String custId, Customer customer){
+        if(customerRepository.existsById(custId)){
+            customer.setcustId(custId);
+            return customerRepository.save(customer);
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteCustomer(String custId){
+        customerRepository.deleteById(custId);
+    }
 }
 
