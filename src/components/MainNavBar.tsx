@@ -1,43 +1,80 @@
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import {  Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import user from "../assets/user.png";
+// import SalesPerNavBar from './SalesPerNavBar';
+// import ManagerNavBar from './ManagerNavBar';
+// import SupplierNavBar from './SupplierNavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+// DEFAULT NAV BAR
+const DefaultNavBar = () => (
+    // <Navbar>
+    //   <Container className="bg-transparent m-3">
+    //     <Nav>
+    //       <img className="" src={logo} style={{ maxWidth: "4.5rem", height: "auto" }} alt="Logo" />
+    //       <Nav.Link as={Link} to="/" className="text-white">Home</Nav.Link>
+    //       <Nav.Link as={Link} to="/about" className="text-white">About Us</Nav.Link>
+    //       <Nav.Link as={Link} to="/products" className="text-white">Products</Nav.Link>
+    //     </Nav>
+    //     <Button style={{ width: "3rem", height: "3rem" }} variant="outline-primary" className="rounded-circle">
+    //       <img src={user} alt="Profile" width="24" height="24" />
+    //     </Button>
+    //   </Container>
+    // </Navbar>
+    <div className="container-fluid bg-blur">
+      <div className="container">
+        <nav className="navbar navbar-expand-lg bg-transparent">
+          <div className="container-fluid">
+            <img className="" src={logo} style={{ maxWidth: "4.5rem", height: "auto" }} alt="Logo" />
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Nav.Link as={Link} to="/" className="text-white nav-link active" aria-current="page">Home</Nav.Link>
+                </li>
+                <li className="nav-item">
+                  <Nav.Link as={Link} to="/about" className="text-white nav-link">About Us</Nav.Link>
+                </li>
+                <li className="nav-item">
+                  <Nav.Link as={Link} to="/products" className="text-white nav-link">Products</Nav.Link>
+                </li>
+              </ul>
+            </div>
+            <button className="btn" type="button">
+              <img className="" src={user} style={{ maxWidth: "16px", height: "auto" }} alt="Logo" />
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+);
+
+// ROLE BASED NAVBAR
 const MainNavBar = () => {
-  return (
-    <Navbar>
-      <Container className="bg-transparent mb-3">
-        <Nav>
-          <img
-            className=""
-            src={logo}
-            style={{ maxWidth: "4.5rem", height: "auto" }}
-          />
-          <Nav.Link as={Link} to="/" className="text-white">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/about" className="text-white">
-            About
-          </Nav.Link>
-          <Nav.Link as={Link} to="/products" className="text-white">
-            Products
-          </Nav.Link>
-        </Nav>
-        <Button
-          style={{ width: "3rem", height: "3rem" }}
-          variant="outline-primary"
-          className="rounded-circle"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.866 0-7 3.134-7 7 0 .552.448 1 1 1h12c.552 0 1-.448 1-1 0-3.866-3.134-7-7-7z" />
-          </svg>
-        </Button>
-      </Container>
-    </Navbar>
-  );
+  type UserRole = "user" | "manager" | "salesPer" | "supplier";
+  const isLoggedIn = false; // Authentication state
+  // const userRole: UserRole = "user"; // User role logic
+
+  if (!isLoggedIn) {
+    return <DefaultNavBar />;
+  }
+
+  // switch (userRole) {
+  //   case "manager":
+  //     return <ManagerNavBar />;
+  //   case "salesPer":
+  //     return <SalesPerNavBar />;
+  //   case "supplier":
+  //     return <SupplierNavBar />;
+  //   default:
+  //     return <ManagerNavBar />;
+  // }
 };
 
 export default MainNavBar;
