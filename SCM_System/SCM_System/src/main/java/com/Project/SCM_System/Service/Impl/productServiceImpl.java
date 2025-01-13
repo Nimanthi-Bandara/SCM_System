@@ -1,4 +1,4 @@
-package com.Project.SCM_System.Service;
+package com.Project.SCM_System.Service.Impl;
 
 import com.Project.SCM_System.Model.Product;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Project.SCM_System.Repository.productRepository;
+import com.Project.SCM_System.Service.productService;
 
 import java.util.Optional;
 import java.util.List;
