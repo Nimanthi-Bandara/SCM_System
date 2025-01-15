@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Project.SCM_System.Model.Category;
-import com.Project.SCM_System.Service.categoryService;
+import com.Project.SCM_System.Service.Impl.categoryService;
 
 
 @RestController

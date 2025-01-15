@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Project.SCM_System.Model.User;
+import com.Project.SCM_System.Model.userRegistrationRequest;
 import com.Project.SCM_System.Service.userService;
 
 import java.util.List;
@@ -53,4 +54,12 @@ public class userController {
         this.userService.deleteUser(userId);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<User> registerUser(@RequestBody userRegistrationRequest request){
+        User user = userService.registerUser(request.getEmail(), request.getfirstName());
+        return ResponseEntity.ok(user);
+    }
+    
+    
 }
