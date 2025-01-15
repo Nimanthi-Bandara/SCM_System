@@ -2,10 +2,11 @@ import {  Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import user from "../assets/user.png";
-// import SalesPerNavBar from './SalesPerNavBar';
-// import ManagerNavBar from './ManagerNavBar';
-// import SupplierNavBar from './SupplierNavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ManagerNavBar from "./ManagerNavBar";
+import SalesPerNavBar from "./SalesPerNavBar";
+import SupplierNavBar from "./SupplierNavBar";
+import CustomerNavBar from "./CustomerNavBar";
 
 // DEFAULT NAV BAR
 const DefaultNavBar = () => (
@@ -61,22 +62,24 @@ const DefaultNavBar = () => (
 const MainNavBar = () => {
   type UserRole = "user" | "manager" | "salesPer" | "supplier";
   const isLoggedIn = false; // Authentication state
-  // const userRole: UserRole = "user"; // User role logic
+  const userRole: UserRole = "user"; // User role logic
 
   if (!isLoggedIn) {
-    return <DefaultNavBar />;
+    return <CustomerNavBar />;
   }
 
-  // switch (userRole) {
-  //   case "manager":
-  //     return <ManagerNavBar />;
-  //   case "salesPer":
-  //     return <SalesPerNavBar />;
-  //   case "supplier":
-  //     return <SupplierNavBar />;
-  //   default:
-  //     return <ManagerNavBar />;
-  // }
+  switch (userRole) {
+    case "customer":
+     return <CustomerNavBar />;
+     case "manager":
+     return <ManagerNavBar />;
+     case "salesPer":
+       return <SalesPerNavBar />;
+     case "supplier":
+       return <SupplierNavBar />;
+     default:
+       return <MainNavBar />;
+  }
 };
 
 export default MainNavBar;

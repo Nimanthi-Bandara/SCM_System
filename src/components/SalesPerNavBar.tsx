@@ -19,5 +19,5 @@ const SalesPerNavBar = () => {
     </Navbar>
 }
 
-export default SalesPerNavBar
+export default SalesPerNavBar;
 

@@ -3,7 +3,7 @@
 const MainProducts = () => {
   return (
     <div>
-      products
+      Prosuct description goes here.
     </div>
   )
 }

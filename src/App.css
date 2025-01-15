@@ -276,6 +276,31 @@ a{
   .card-3d-wrap { width: 300px; }
 }
 
+/*CUSTOMER PAGE*/
+.cus-home-body{
+  min-height: 100vh;
+  background-image: url('../src/assets/cusHome.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* This makes the background fixed while scrolling */
+  position: relative; /* For proper stacking context */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: rgb(100, 100, 100);
+}
 
+.form-control:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
 
+.btn-primary:hover {
+  background-color: #0d47a1;
+  border-color: #0d47a1;
+}
 
+.card {
+  border-radius: 8px;
+}
