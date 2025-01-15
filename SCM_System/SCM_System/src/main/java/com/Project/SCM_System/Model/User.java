@@ -11,6 +11,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String phoneNo;
     private String password;
 
     public User(String email, String firstName){
@@ -56,5 +57,13 @@ public class User {
 
     public void setpassword(String password){
         this.password = password;
+    }
+
+    public String getphoneNo(){
+        return phoneNo;
+    }
+
+    public void setphoneNo(String phoneNo){
+        this.phoneNo = phoneNo;
     }
 }

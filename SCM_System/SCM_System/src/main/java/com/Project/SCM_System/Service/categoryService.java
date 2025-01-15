@@ -1,4 +1,4 @@
-package com.Project.SCM_System.Service.Impl;
+package com.Project.SCM_System.Service;
 
 import com.Project.SCM_System.Model.Category;
 

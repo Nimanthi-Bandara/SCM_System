@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Project.SCM_System.Repository.categoryRepository;
+import com.Project.SCM_System.Service.categoryService;
 import com.Project.SCM_System.Model.Category;
 
 

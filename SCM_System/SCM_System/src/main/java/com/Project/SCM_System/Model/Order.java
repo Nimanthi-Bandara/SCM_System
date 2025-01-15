@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Order {
    @Id
    private String orderId;
+   private String orderName;
    private String custId;
    private String orderDate;
    private int totalAmount;
@@ -20,6 +21,14 @@ public class Order {
 
    public void setorderId(String orderId){
     this.orderId = orderId;
+   }
+
+   public String getordername(){
+      return orderName;
+   }
+
+   public void setordername(String orderName){
+      
    }
 
    public String getcustId(){
