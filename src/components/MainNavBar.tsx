@@ -44,9 +44,11 @@ const DefaultNavBar = () => (
                 </li>
               </ul>
             </div>
-            <button className="btn" type="button">
+            <Link to="/login">
+            <button className="btn" type="button" >
               <img className="" src={user} style={{ maxWidth: "16px", height: "auto" }} alt="Logo" />
             </button>
+            </Link>
           </div>
         </nav>
       </div>
