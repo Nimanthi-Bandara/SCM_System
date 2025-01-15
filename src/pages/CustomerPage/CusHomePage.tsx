@@ -3,7 +3,7 @@
 function CusHomePage()  {
   return (
     <div>
-      
+      customer home
     </div>
   )
 }
