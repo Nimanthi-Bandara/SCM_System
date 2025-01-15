@@ -1,2 +1,2 @@
 # SCM_System
-A supply chain management system for apperal company
+A supply chain management system
