@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import com.Project.SCM_System.Repository.orderRepository;
@@ -15,6 +16,15 @@ import com.Project.SCM_System.Model.Order;
 public class orderServiceImpl implements orderService {
     @Autowired
     private orderRepository orderRepository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    @Autowired
+
+
+
+
     @Override
     public Order createOrder(Order order){
         return orderRepository.save(order);
