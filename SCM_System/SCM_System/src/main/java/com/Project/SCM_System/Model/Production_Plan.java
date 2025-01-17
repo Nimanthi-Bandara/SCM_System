@@ -28,28 +28,28 @@ public class Production_Plan {
         this.OrderName = OrderName;
     }
 
-    public String getStartDate() {
-        return StartDate;
+    public String getQuantity() {
+        return Quantity;
     }
 
-    public void setStartDate(String StartDate) {
-        this.StartDate = StartDate;
+    public void setQuantity(String Quantity) {
+        this.Quantity = Quantity;
     }
 
-    public String getEndDate() {
-        return EndDate;
+    public String getEstimatedEndDate() {
+        return EstimatedEndDate;
     }
 
-    public void setEndDate(String EndDate) {
-        this.EndDate = EndDate;
+    public void setEstimatedEndDate(String EstimatedEndDate) {
+        this.EstimatedEndDate = EstimatedEndDate;
 
     }
 
-    public String getProductId() {
-        return ProductId;
+    public String getActualEndDate() {
+        return ActualEndDate;
     }
 
-    public void setProductId(String ProductId) {
-        this.ProductId = ProductId;
+    public void setActualEndDate(String ActualEndDate) {
+        this.ActualEndDate = ActualEndDate;
     }
 }
