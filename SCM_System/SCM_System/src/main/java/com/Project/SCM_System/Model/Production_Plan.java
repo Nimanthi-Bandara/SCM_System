@@ -6,26 +6,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Production_Plan")
 public class Production_Plan {
     @Id
-    private String PlanId;
-    private String TargetQuantity;
-    private String StartDate;
-    private String EndDate;
-    private String ProductId;
+    private String OrderId;
+    private String OrderName;
+    private String Quantity;
+    private String EstimatedEndDate;
+    private String ActualEndDate;
 
-    public String getPlanId() {
-        return PlanId;
+    public String getOrderId() {
+        return OrderId;
     }
 
-    public void setPlanId(String PlanId) {
-        this.PlanId = PlanId;
+    public void setOrderId(String OrderId) {
+        this.OrderId = OrderId;
     }
 
-    public String getTargetQuantity() {
-        return TargetQuantity;
+    public String getOrderName() {
+        return OrderName;
     }
 
-    public void setTargetQuantity(String TargetQuantity) {
-        this.TargetQuantity = TargetQuantity;
+    public void setOrderName(String OrderName) {
+        this.OrderName = OrderName;
     }
 
     public String getStartDate() {
