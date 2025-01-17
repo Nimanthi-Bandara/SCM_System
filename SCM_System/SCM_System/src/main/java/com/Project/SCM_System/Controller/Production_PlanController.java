@@ -19,38 +19,45 @@ import com.Project.SCM_System.Model.Production_Plan;
 @RequestMapping({ "/api/Production_Plan" })
 public class Production_PlanController {
     @Autowired
-    private Production_PlanService Production_PlanService;
+    private Production_PlanController Production_PlanService;
 
     public Production_PlanController() {
     }
 
     @PostMapping
-    public ResponseEntity<Production_Plan> createProduction_Plan(@RequestBody Production_Plan production_plan) {
-        Production_Plan creatSupplier = this.Production_PlanService.createProduction_Plan(production_plan);
-        return ResponseEntity.ok(creatSupplier);
+    public ResponseEntity<ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>>> createProduction_Plan(
+            @RequestBody Production_Plan production_plan) {
+        ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> creatProduction_Plan = this.Production_PlanService
+                .createProduction_Plan(production_plan);
+        return ResponseEntity.ok(creatProduction_Plan);
     }
 
-    @GetMapping({ "/{suppId}" })
-    public ResponseEntity<Supplier> getSupplierById(@PathVariable String suppId) {
-        Supplier supplier = this.supplierService.getSupplierById(suppId);
-        return supplier != null ? ResponseEntity.ok(supplier) : ResponseEntity.notFound().build();
+    @GetMapping({ "/{OrderId}" })
+    public ResponseEntity<Production_Plan> getSupplierById(@PathVariable String suppId) {
+        Production_Plan production_plan = this.Production_PlanService.getProduction_PlanById(OrderId);
+        return production_plan != null ? ResponseEntity.ok(production_plan) : ResponseEntity.notFound().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<Supplier>> getAllSupplier() {
-        List<Supplier> supplier = this.supplierService.getAllSuppliers();
-        return ResponseEntity.ok(supplier);
+    public ResponseEntity<List<Production_Plan>> getAllProduction_Plan() {
+        List<Production_Plan> production_plan = (List<Production_Plan>) this.Production_PlanService
+                .getAllProduction_Plan();
+        return ResponseEntity.ok(production_plan);
     }
 
-    @PutMapping({ "/suppId" })
-    public ResponseEntity<Supplier> updateSupplier(@PathVariable String suppId, @RequestBody Supplier supplier) {
-        Supplier updateSupplier = this.supplierService.updateSupplier(suppId, supplier);
-        return updateSupplier != null ? ResponseEntity.ok(updateSupplier) : ResponseEntity.notFound().build();
+    @PutMapping({ "/OrderId" })
+    public ResponseEntity<Production_Plan> updateProduction_Plan(@PathVariable String OrderId,
+            @RequestBody Production_Plan production_plan) {
+        Production_Plan updateProduction_Plan = this.Production_PlanService.updateProduction_Plan(OrderId,
+                production_plan);
+        return updateProduction_Plan(OrderId, production_plan) != null
+                ? ResponseEntity.ok(updateProduction_Plan(OrderId, production_plan))
+                : ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping({ "/{suppId}" })
-    public ResponseEntity<Supplier> deleteSupplier(@PathVariable String suppId) {
-        this.supplierService.deleteSupplier(suppId);
+    @DeleteMapping({ "/{OrderId}" })
+    public ResponseEntity<Production_Plan> deleteProduction_Plan(@PathVariable String suppId) {
+        this.Production_PlanService.deleteProduction_Plan(OrderId)(OrderId);
         return ResponseEntity.noContent().build();
     }
 }
