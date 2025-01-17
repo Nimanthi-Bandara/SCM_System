@@ -28,13 +28,13 @@ public class Production_PlanController {
     @PostMapping
     public ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> createProduction_Plan(
             @RequestBody Production_Plan production_plan) {
-        ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> creatProduction_Plan = this.Production_PlanService
+        ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> createProduction_Plan = this.Production_PlanService
                 .createProduction_Plan(production_plan);
         return ResponseEntity.ok(createProduction_Plan);
     }
 
     @GetMapping({ "/{OrderId}" })
-    public ResponseEntity<Production_Plan> getProduction_PlanById(@PathVariable String suppId) {
+    public ResponseEntity<Production_Plan> getProduction_PlanById(@PathVariable String OrderId) {
         Production_Plan production_plan = this.Production_PlanService.getProduction_PlanById(OrderId);
         return production_plan != null ? ResponseEntity.ok(production_plan) : ResponseEntity.notFound().build();
     }
@@ -56,7 +56,7 @@ public class Production_PlanController {
     }
 
     @DeleteMapping({ "/{OrderId}" })
-    public ResponseEntity<Production_Plan> deleteProduction_Plan(@PathVariable String suppId) {
+    public ResponseEntity<Production_Plan> deleteProduction_Plan(@PathVariable String OrderId) {
         this.Production_PlanService.deleteProduction_Plan(OrderId);
         return ResponseEntity.noContent().build();
     }
