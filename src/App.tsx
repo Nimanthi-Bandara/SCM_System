@@ -22,8 +22,8 @@ function App() {
                     <Route path="/products" element={<MainProducts />} />
                     <Route path="/login" element={<MainLogin />} />
 
-                    <Route path="/customer" element={<CusHomePage/>} />
-                    <Route path="/track-package/:orderId" element={<CusOrderTracking/>} />
+                    {/* <Route path="/customer" element={<CusHomePage/>} />
+                    <Route path="/track-package/:orderId" element={<CusOrderTracking/>} /> */}
                 </Routes>
             {/*</Container>*/}
             <Footer />

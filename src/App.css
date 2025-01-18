@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=alternate_email');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=north_east');
 
-.navbar-nav{
+ .navbar-nav{
   background-color: transparent;
-  padding: 10px 20px;
+  padding: 0px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,6 +17,33 @@
 
 .navbar-nav .nav-item {
     margin-left: 45px;
+} 
+
+.navbar-wrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar {
+  padding: 1rem 0;
+}
+
+.nav-link {
+  color: white !important;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-link.active {
+  opacity: 1;
 }
 
 body, html {
@@ -25,19 +52,35 @@ body, html {
   min-height: 100vh;
   font-family: "Roboto", serif;
 }
+
+/* MAIN HOME PAGE */
+.hero-section {
+  min-height: 100vh;
+  background-image: url('../src/assets/wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 /* src/App.css or src/index.css */
-.home-page-background {
+/* .home-page-background {
   min-height: 100vh;
   background-image: url('../src/assets/wallpaper.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; /* This makes the background fixed while scrolling */
-  position: relative; /* For proper stacking context */
-  width: 100%;
+  /* position: relative; /* For proper stacking context */
+  /* width: 100%;
   margin: 0;
   padding: 0;
-}
+} */ 
 
 /* If you still see any gaps, you might need to add these global styles */
 
@@ -54,6 +97,7 @@ body, html {
 }
 .main-home-body{
   height: 80vh;
+ 
 }
 .slider-caption{
   text-shadow: 2px 2px 17px #000000;
