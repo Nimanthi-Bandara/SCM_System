@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
+import { Button } from "react-bootstrap";
 
 const MainHome = () => {
   return (
@@ -14,7 +15,6 @@ const MainHome = () => {
     //   </div>
     // </div>
     <>
-    
       <div className="hero-section d-flex align-items-center">
         <div className="container-fluid main-home-body d-flex">
           <div className="container d-flex align-items-center">
@@ -27,7 +27,12 @@ const MainHome = () => {
                   From threads to trends,
                   <br /> We weave the future of supply chains.
                 </h1>
-                <p className="slider-text">Fueled by innovation and passion, we craft solutions that inspire and empower. With decades of expertise, our journey is defined by enduring partnerships and a commitment to excellence.</p>
+                <p className="slider-text">
+                  Fueled by innovation and passion, we craft solutions that
+                  inspire and empower. With decades of expertise, our journey is
+                  defined by enduring partnerships and a commitment to
+                  excellence.
+                </p>
               </div>
             </div>
           </div>
@@ -38,17 +43,53 @@ const MainHome = () => {
           <div className="row">
             <div className="col-12">
               <p className="main-header fs-6 mt-5 mb-2">What we provide</p>
-              <h2>Core Principles of Our Driven Excellence.</h2>
+              <h2 className="header-topic pb-5">
+                Core Principles of Our Driven Excellence.
+              </h2>
             </div>
             <div className="row">
               <div className="col-4">
-                <p></p>
+                <p className="fs-6">Agility</p>
+                <img
+                  src="../../../src/assets/2150762229.jpg"
+                  className="w-100 rounded"
+                  alt=""
+                />
+                <p>
+                  Delivery in 15 days for upto 150k pieces. Our agile processes
+                  adapt to dynamic demands, guaranteeing efficiency and
+                  precision every step of the way.
+                </p>{" "}
+                {/*These will be changed*/}
               </div>
+              <div className="col-4">
+                <p className="fs-6">Innovation</p>
+                <img
+                  src="../../../src/assets/2150762229.jpg"
+                  className="w-100 rounded"
+                  alt=""
+                />
+                <p>30+ product launches with key customers.</p>
+              </div>
+              <div className="col-4">
+                <p className="fs-6">Sustainability</p>
+                <img
+                  src="../../../src/assets/2150762229.jpg"
+                  className="w-100 rounded"
+                  alt=""
+                />
+                <p>
+                  We embrace sustainable practices that minimize environmental
+                  impact, prioritize resource efficiency, and promote long-term
+                  well-being for our planet.
+                </p>
+              </div>
+              <hr />
             </div>
           </div>
         </div>
       </div>
-      <div className="container-fluid pt-5">
+      {/* <div className="container-fluid pt-5">
         <div className="container">
           <div className="row">
             <div className="col-5">
@@ -73,20 +114,20 @@ const MainHome = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="container-fluid py-5">
         <div className="container">
           <div className="row">
             <div className="col-12 text-white">
-              <h4 className="py-3">Transportation</h4>
+              <p className="main-header fs-6 mt-5 mb-2">Transportation</p>
             </div>
             <div className="col-4">
               <img
-                src="../../../src/assets/trans-1.png"
-                className="w-100"
+                src="../../../src/assets/2150762229.jpg"
+                className="w-100 rounded"
                 alt=""
               />
-              <p className="text-white py-2">
+              <p className="text-grey py-2">
                 {" "}
                 Road freight is ideal for short to medium distances and is
                 highly versatile. It ensures door-to-door delivery, making it
@@ -98,11 +139,11 @@ const MainHome = () => {
             </div>
             <div className="col-4">
               <img
-                src="../../../src/assets/trans-2.png"
-                className="w-100"
+                src="../../../src/assets/2150762229.jpg"
+                className="w-100 rounded"
                 alt=""
               />
-              <p className="text-white py-2">
+              <p className="text-grey py-2">
                 Sea freight is the backbone of global trade, offering
                 cost-effective transportation for large, bulky goods over long
                 distances. With high container capacity and options like Full
@@ -113,17 +154,30 @@ const MainHome = () => {
             </div>
             <div className="col-4">
               <img
-                src="../../../src/assets/trans-3.png"
-                className="w-100"
+                src="../../../src/assets/2150762229.jpg"
+                className="w-100 rounded"
                 alt=""
               />
-              <p className="text-white py-2">
+              <p className="text-grey py-2">
                 Air freight is the fastest mode of transportation, suitable for
                 time-sensitive and high-value goods. It ensures speedy delivery
                 over long distances, making it ideal for industries that require
                 urgent shipments. Although more expensive, air freight
                 guarantees reliability and security for critical shipments.
               </p>
+            </div>
+            <hr className="pb-3" />
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid pb-5">
+        <div className="container supplier-connection ">
+          <div className="row pt-5 pb-5 ps-5 ">
+            <div className="col-9 ">
+              <p className="text-white pb-4">Reach Out</p>
+              <h2 className="text-white pb-2">Connect as a Supplier.</h2>
+              <p className="text-white pb-4">Join us to make </p>
+              <Button>Send an Email</Button>
             </div>
           </div>
         </div>

@@ -81,6 +81,10 @@ html {
 
 }
 
+.supplier-connection{
+  background-image: url("../src/assets/suppliers.jpg");
+  border-radius: 10px;
+}
 /* src/App.css or src/index.css */
 /* .home-page-background {
   min-height: 100vh;
@@ -130,6 +134,29 @@ html {
   background-color: rgba(14, 107, 20, 0.31);
   width: fit-content;
 }
+
+/*ABOUT US PAGE CSS*/
+.about-header{
+  background-image: url("../src/assets/about-header.jpg");
+  min-height: 30vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.about-header-text{
+  margin-top: 110px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.21);
+  width: fit-content;
+  color: #7ad6a0;
+}
+
 /* L O G I N & R E G I S T E R*/
 
 :root {
