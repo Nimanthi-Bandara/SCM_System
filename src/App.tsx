@@ -1,11 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import MainHome from "./pages/MainPage/MainHome";
+import MainHome from "./pages/CustomerPage/MainHome.tsx";
 import MainNavBar from "./components/MainNavBar";
-import MainAbout from "./pages/MainPage/MainAbout";
-import MainProducts from "./pages/MainPage/MainProducts";
+import MainAbout from "./pages/CustomerPage/MainAbout.tsx";
+import MainProducts from "./pages/CustomerPage/MainProducts.tsx";
 import Footer from "./components/Footer";
 import MainLogin from "./pages/MainPage/MainLogin.tsx";
-import CusHomePage from "./pages/CustomerPage/CusHomePage.tsx";
 import CusOrderTracking from "./pages/CustomerPage/CusOrderTracking.tsx";
 
 function App() {

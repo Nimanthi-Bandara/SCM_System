@@ -4,7 +4,6 @@ import logo from "../assets/logo.png";
 import user from "../assets/user.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SupplierNavBar from "./SupplierNavBar";
-import CustomerNavBar from "./CustomerNavBar";
 import AdminNavBar from "./AdminNavBar";
 
 // DEFAULT NAV BAR
@@ -74,7 +73,7 @@ const DefaultNavBar = () => (
                     to="/products"
                     className="text-white nav-link"
                   >
-                    Products
+                    Product In Progress
                   </Nav.Link>
                 </li>
               </ul>

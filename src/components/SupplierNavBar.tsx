@@ -8,8 +8,10 @@ const SupplierNavBar = () => (
       <Container className="bg-transparent m-3">
         <Nav>
           <img src={logo} style={{ maxWidth: "4.5rem", height: "auto" }} alt="" />
-          <Nav.Link as={Link} to="/supplier/home">Home</Nav.Link>
           <Nav.Link as={Link} to="/supplier/orders">Orders</Nav.Link>
+          <Nav.Link as={Link} to="/supplier/accepted">Accepted Orders</Nav.Link>
+          <Nav.Link as={Link} to="/supplier/reports">Reports</Nav.Link>
+          <Nav.Link as={Link} to="/supplier/plan">Production Plan</Nav.Link>
           
         </Nav>
         <Button style={{ width: "3rem", height: "3rem" }} variant="outline-primary" className="rounded-circle">
