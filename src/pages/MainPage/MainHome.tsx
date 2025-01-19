@@ -15,19 +15,34 @@ const MainHome = () => {
     // </div>
     <>
     
-      <div className="hero-section">
+      <div className="hero-section d-flex align-items-center">
         <div className="container-fluid main-home-body d-flex">
           <div className="container d-flex align-items-center">
             <div className="row">
-              <div className="col-12">
+              <div className="col-8">
                 <p className="text-white fs-6 slider-header text-start">
                   Welcome to Stylo
                 </p>
-                <h1 className="text-start text-yellow slider-caption">
+                <h1 className="text-start text-yellow pb-4 slider-caption">
                   From threads to trends,
                   <br /> We weave the future of supply chains.
                 </h1>
-                
+                <p className="slider-text">Fueled by innovation and passion, we craft solutions that inspire and empower. With decades of expertise, our journey is defined by enduring partnerships and a commitment to excellence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid d-flex">
+        <div className="container d-flex align-items-center">
+          <div className="row">
+            <div className="col-12">
+              <p className="main-header fs-6 mt-5 mb-2">What we provide</p>
+              <h2>Core Principles of Our Driven Excellence.</h2>
+            </div>
+            <div className="row">
+              <div className="col-4">
+                <p></p>
               </div>
             </div>
           </div>
