@@ -1,15 +1,18 @@
 package com.Project.SCM_System.DTO;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import com.Project.SCM_System.Model.Parcel;
 import com.Project.SCM_System.Model.ProductionUpdate;
+import com.Project.SCM_System.enums.ParcelStatus;
 import com.Project.SCM_System.enums.orderStatus;
 
 public class OrderTrackingInfo {
     private String orderId;
     private String orderNumber;
     private orderStatus status;
-    private String orderDate;
+    private LocalDateTime orderDate;
     private List<ProductionUpdate> productionUpdates;
     private ParcelStatus parcelStatus;
     private String trackingNumber;
@@ -38,11 +41,11 @@ public class OrderTrackingInfo {
         this.status = status;
     }
 
-    public String getorderDate(){
+    public LocalDateTime getorderDate(){
         return orderDate;
     }
 
-    public void setorderDate(String orderDate){
+    public void setorderDate(LocalDateTime orderDate){
         this.orderDate = orderDate;
     }
 
@@ -68,5 +71,10 @@ public class OrderTrackingInfo {
 
     public void settrackingNumber(String trackingNumber){
         this.trackingNumber = trackingNumber;
+    }
+
+    public void setParcelStatus(Parcel parcelStatus2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setParcelStatus'");
     }
 }
