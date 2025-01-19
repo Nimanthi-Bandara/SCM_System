@@ -24,7 +24,7 @@ public class Order {
    private int totalAmount;
    private int unitPrice;
    private int quantity;
-   private orderStatus status; //enum class
+   private orderStatus status; //orderStatus enum class
    private String trackingNumber;
    private LocalDateTime estimatedCompletionDate;
    private LocalDateTime actualCompletionDate;
@@ -185,4 +185,5 @@ public class Order {
    public void calculateTotalAmount() {
       this.totalAmount = this.unitPrice * this.quantity;
    }
+
 }

@@ -62,8 +62,7 @@ public class orderServiceImpl implements orderService {
         return savedOrder;
     }
 
-    public Order updateOrderStatus(String orderId, orderStatus newStatus, 
-                                 String description, String updatedBy) {
+    public Order updateOrderStatus(String orderId, orderStatus newStatus, String description, String updatedBy) {
         Order order = orderRepository.findById(orderId)
             .orElseThrow(() -> new RuntimeException("Order not found"));
 
@@ -184,8 +183,27 @@ public class orderServiceImpl implements orderService {
         return null; // throw exception
     }
 
+    //delete the order
     @Override
     public void deleteOrder(String orderId){
         orderRepository.deleteById(orderId);
     }
+
+    //manage the accepted orders
+    public List<Order> getAcceptedOrders() {
+        return orderRepository.findByStatus("ACCEPTED");
+    }
+    
+    public Order acceptOrder(String orderId) {
+        Optional<Order> orderOpt = orderRepository.findById(orderId);
+        if (orderOpt.isPresent()) {
+            Order order = orderOpt.get();
+            order.setStatus("ACCEPTED");
+            return orderRepository.save(order);
+        }
+        throw new RuntimeException("Order not found");
+    }
+
+    
+    
 }

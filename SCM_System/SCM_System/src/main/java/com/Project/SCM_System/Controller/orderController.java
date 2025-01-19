@@ -96,4 +96,19 @@ public class orderController {
         return ResponseEntity.ok(orderService.getOrderStatistics());
 
     }*/
+
+    @GetMapping("/accepted")
+    public ResponseEntity<List<Order>> getAcceptedOrders() {
+        return ResponseEntity.ok(orderService.getAcceptedOrders());
+    }
+    
+    @PutMapping("/{orderId}/accept")
+    public ResponseEntity<Order> acceptOrder(@PathVariable String orderId) {
+        try {
+            Order acceptedOrder = orderService.acceptOrder(orderId);
+            return ResponseEntity.ok(acceptedOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
