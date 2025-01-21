@@ -25,6 +25,11 @@ public class Production_PlanController {
     public Production_PlanController() {
     }
 
+    @GetMapping("/test")
+    public String getMethodName() {
+        return "ENDPOINT OK";
+    }
+
     @PostMapping
     public ResponseEntity<Production_Plan> createProduction_Plan(@RequestBody Production_Plan production_plan) {
         Production_Plan createproduction_plan = this.Production_PlanService.createProduction_Plan(production_plan);
