@@ -73,12 +73,12 @@ const DefaultNavBar = () => (
                     to="/products"
                     className="text-white nav-link"
                   >
-                    Product In Progress
+                    Products In Progress
                   </Nav.Link>
                 </li>
               </ul>
             </div>
-            <Link to="/login">
+            <Link to="/myAccount">
               <button className="btn" type="button">
                 <img
                   className=""

@@ -3,16 +3,16 @@ import "../../App.css";
 const MainAbout = () => {
   return (
     <div>
-        <div className="about-header">
-      <div className="container-fluid d-flex">
-        <div className="container d-flex">
-          <div className="row">
-            <div className="col-12">
-              <p className="fs-6 about-header-text text-white">Who We Are</p>
+      <div className="about-header">
+        <div className="container-fluid d-flex">
+          <div className="container d-flex">
+            <div className="row">
+              <div className="col-12">
+                <p className="fs-6 about-header-text text-white">Who We Are</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
       <div className="container-fluid">
         <div className="container">
