@@ -25,20 +25,15 @@ public class Production_PlanController {
     public Production_PlanController() {
     }
 
-    @GetMapping("/test")
-    public String getMethodName() {
-        return "ENDPOINT OK";
-    }
-
     @PostMapping
     public ResponseEntity<Production_Plan> createProduction_Plan(@RequestBody Production_Plan production_plan) {
         Production_Plan createproduction_plan = this.Production_PlanService.createProduction_Plan(production_plan);
         return ResponseEntity.ok(createproduction_plan);
     }
 
-    @GetMapping({ "/{OrderId}" })
-    public ResponseEntity<Production_Plan> getProduction_PlanById(@PathVariable String OrderId) {
-        Production_Plan production_plan = this.Production_PlanService.getProduction_PlanById(OrderId);
+    @GetMapping({ "/{orderId}" })
+    public ResponseEntity<Production_Plan> getProduction_PlanById(@PathVariable String orderId) {
+        Production_Plan production_plan = this.Production_PlanService.getProduction_PlanById(orderId);
         return production_plan != null ? ResponseEntity.ok(production_plan) : ResponseEntity.notFound().build();
     }
 
@@ -49,18 +44,18 @@ public class Production_PlanController {
         return ResponseEntity.ok(production_plan);
     }
 
-    @PutMapping({ "/{OrderId}" })
-    public ResponseEntity<Production_Plan> updateProduction_Plan(@PathVariable String OrderId,
+    @PutMapping({ "/{orderId}" })
+    public ResponseEntity<Production_Plan> updateProduction_Plan(@PathVariable String orderId,
             @RequestBody Production_Plan production_plan) {
-        Production_Plan updateProduction_Plan = this.Production_PlanService.updateProduction_Plan(OrderId,
+        Production_Plan updateProduction_Plan = this.Production_PlanService.updateProduction_Plan(orderId,
                 production_plan);
         return updateProduction_Plan != null ? ResponseEntity.ok(updateProduction_Plan)
                 : ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping({ "/{OrderId}" })
-    public ResponseEntity<Production_Plan> deleteProduction_Plan(@PathVariable String OrderId) {
-        this.Production_PlanService.deleteProduction_Plan(OrderId);
+    @DeleteMapping({ "/{orderId}" })
+    public ResponseEntity<Production_Plan> deleteProduction_Plan(@PathVariable String orderId) {
+        this.Production_PlanService.deleteProduction_Plan(orderId);
         return ResponseEntity.noContent().build();
     }
 }

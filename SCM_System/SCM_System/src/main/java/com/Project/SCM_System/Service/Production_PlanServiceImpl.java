@@ -21,8 +21,8 @@ public class Production_PlanServiceImpl implements Production_PlanService {
     }
 
     @Override
-    public Production_Plan getProduction_PlanById(String OrderId) {
-        Optional<Production_Plan> production_plan = production_planRepository.findById(OrderId);
+    public Production_Plan getProduction_PlanById(String orderId) {
+        Optional<Production_Plan> production_plan = production_planRepository.findById(orderId);
         return production_plan.orElse(null);
     }
 
@@ -32,16 +32,16 @@ public class Production_PlanServiceImpl implements Production_PlanService {
     }
 
     @Override
-    public Production_Plan updateProduction_Plan(String OrderId, Production_Plan production_plan) {
-        if (production_planRepository.existsById(OrderId)) {
-            production_plan.setOrderId(OrderId);
+    public Production_Plan updateProduction_Plan(String orderId, Production_Plan production_plan) {
+        if (production_planRepository.existsById(orderId)) {
+            production_plan.setorderId(orderId);
             return production_planRepository.save(production_plan);
         }
         return null; // throw exception
     }
 
     @Override
-    public void deleteProduction_Plan(String OrderId) {
-        production_planRepository.deleteById(OrderId);
+    public void deleteProduction_Plan(String orderId) {
+        production_planRepository.deleteById(orderId);
     }
 }

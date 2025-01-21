@@ -6,50 +6,50 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Production_Plan")
 public class Production_Plan {
     @Id
-    private String OrderId;
-    private String OrderName;
-    private String Quantity;
-    private String EstimatedEndDate;
-    private String ActualEndDate;
+    private String orderId;
+    private String orderName;
+    private String quantity;
+    private String estimatedCompletionDate;
+    private String actualCompletionDate;
 
-    public String getOrderId() {
-        return OrderId;
+    public String getorderId() {
+        return orderId;
     }
 
-    public void setOrderId(String OrderId) {
-        this.OrderId = OrderId;
+    public void setorderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public String getOrderName() {
-        return OrderName;
+    public String getorderName() {
+        return orderName;
     }
 
-    public void setOrderName(String OrderName) {
-        this.OrderName = OrderName;
+    public void setorderName(String orderName) {
+        this.orderName = orderName;
     }
 
-    public String getQuantity() {
-        return Quantity;
+    public String getquantity() {
+        return quantity;
     }
 
-    public void setQuantity(String Quantity) {
-        this.Quantity = Quantity;
+    public void setquantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getEstimatedEndDate() {
-        return EstimatedEndDate;
+    public String getestimatedCompletionDate() {
+        return estimatedCompletionDate;
     }
 
-    public void setEstimatedEndDate(String EstimatedEndDate) {
-        this.EstimatedEndDate = EstimatedEndDate;
+    public void setestimatedCompletionDate(String estimatedCompletionDate) {
+        this.estimatedCompletionDate = estimatedCompletionDate;
 
     }
 
-    public String getActualEndDate() {
-        return ActualEndDate;
+    public String getactualCompletionDate() {
+        return actualCompletionDate;
     }
 
-    public void setActualEndDate(String ActualEndDate) {
-        this.ActualEndDate = ActualEndDate;
+    public void setactualCompletionDate(String actualCompletionDate) {
+        this.actualCompletionDate = actualCompletionDate;
     }
 }
