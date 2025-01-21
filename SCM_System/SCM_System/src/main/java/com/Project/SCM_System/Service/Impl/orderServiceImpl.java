@@ -192,18 +192,5 @@ public class orderServiceImpl implements orderService {
     //manage the accepted orders
     public List<Order> getAcceptedOrders() {
         return orderRepository.findByStatus("ACCEPTED");
-    }
-    
-    public Order acceptOrder(String orderId) {
-        Optional<Order> orderOpt = orderRepository.findById(orderId);
-        if (orderOpt.isPresent()) {
-            Order order = orderOpt.get();
-            order.setStatus("ACCEPTED");
-            return orderRepository.save(order);
-        }
-        throw new RuntimeException("Order not found");
-    }
-
-    
-    
+    }   
 }
