@@ -5,11 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Project.SCM_System.DTO.OrderRequest;
+import com.Project.SCM_System.DTO.OrderSearchCriteria;
+import com.Project.SCM_System.DTO.OrderTrackingInfo;
 import com.Project.SCM_System.Model.Order;
 
 import com.Project.SCM_System.Service.orderService;
+import com.Project.SCM_System.enums.orderStatus;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,13 +29,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class orderController {
     @Autowired
     private orderService orderService;
-    public orderController(){
+    public orderController(orderService orderService){
+        this.orderService = orderService;
     }
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order){
-        Order createOrder = this.orderService.createOrder(order);
-        return ResponseEntity.ok(createOrder);
+    public ResponseEntity<Order> createOrder(@RequestBody OrderRequest request){
+        return ResponseEntity.ok(orderService.createOrder(request));
+    }
+
+    @PutMapping("/{orderId}/status")
+    public ResponseEntity<Order> updateStatus(
+            @PathVariable String orderId,
+            @RequestParam orderStatus status,
+            @RequestParam String description,
+            @RequestParam String updatedBy) {
+        return ResponseEntity.ok(orderService.updateorderStatus(orderId, status, description, updatedBy));
     }
 
     @GetMapping({"/{orderId}"})
@@ -56,4 +71,44 @@ public class orderController {
         return ResponseEntity.noContent().build();
     }
 
+     @GetMapping("/customer/{custId}")
+    public ResponseEntity<List<Order>> getOrdersByCustomer(@PathVariable String custId) {
+        return ResponseEntity.ok(orderService.getOrdersByCustomer(custId));
     }
+
+    @GetMapping("/status/{status}")
+    public ResponseEntity<List<Order>> getOrdersByStatus(@PathVariable orderStatus status) {
+        return ResponseEntity.ok(orderService.getOrdersByStatus(status));
+    }
+
+    @GetMapping("/{orderId}/tracking")
+    public ResponseEntity<OrderTrackingInfo> getOrderTracking(@PathVariable String orderId) {
+        return ResponseEntity.ok(orderService.getOrderTrackingInfo(orderId));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Order>> searchOrders(@RequestBody OrderSearchCriteria criteria) {
+        return ResponseEntity.ok(orderService.searchOrders(criteria));
+    }
+
+    /*@GetMapping("/statistics")
+    public ResponseEntity<OrderStatistics> getOrderStatistics() {
+        return ResponseEntity.ok(orderService.getOrderStatistics());
+
+    }*/
+
+    @GetMapping("/accepted")
+    public ResponseEntity<List<Order>> getAcceptedOrders() {
+        return ResponseEntity.ok(orderService.getAcceptedOrders());
+    }
+    
+    @PutMapping("/{orderId}/accept")
+    public ResponseEntity<Order> acceptOrder(@PathVariable String orderId) {
+        try {
+            Order acceptedOrder = orderService.acceptOrder(orderId);
+            return ResponseEntity.ok(acceptedOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+}
