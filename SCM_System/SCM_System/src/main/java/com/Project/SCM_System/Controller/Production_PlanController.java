@@ -14,23 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Project.SCM_System.Model.Production_Plan;
-import com.Project.SCM_System.Model.Supplier;
+import com.Project.SCM_System.Service.Production_PlanService;
 
 @RestController
 @RequestMapping({ "/api/Production_Plan" })
 public class Production_PlanController {
     @Autowired
-    private Production_PlanController Production_PlanService;
+    private Production_PlanService Production_PlanService;
 
     public Production_PlanController() {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> createProduction_Plan(
-            @RequestBody Production_Plan production_plan) {
-        ResponseEntity<ResponseEntity<ResponseEntity<Production_Plan>>> createProduction_Plan = this.Production_PlanService
-                .createProduction_Plan(production_plan);
-        return ResponseEntity.ok(createProduction_Plan);
+    public ResponseEntity<Production_Plan> createProduction_Plan(@RequestBody Production_Plan production_plan) {
+        Production_Plan createproduction_plan = this.Production_PlanService.createProduction_Plan(production_plan);
+        return ResponseEntity.ok(createproduction_plan);
     }
 
     @GetMapping({ "/{OrderId}" })
@@ -49,8 +47,8 @@ public class Production_PlanController {
     @PutMapping({ "/{OrderId}" })
     public ResponseEntity<Production_Plan> updateProduction_Plan(@PathVariable String OrderId,
             @RequestBody Production_Plan production_plan) {
-        ResponseEntity<Production_Plan> updateProduction_Plan = this.Production_PlanService
-                .updateProduction_Plan(OrderId, production_plan);
+        Production_Plan updateProduction_Plan = this.Production_PlanService.updateProduction_Plan(OrderId,
+                production_plan);
         return updateProduction_Plan != null ? ResponseEntity.ok(updateProduction_Plan)
                 : ResponseEntity.notFound().build();
     }
