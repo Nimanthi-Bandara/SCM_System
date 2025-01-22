@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.Project.SCM_System.Model.Order;
 
-import org.springframework.mail.MailSendException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
@@ -37,9 +36,10 @@ public class EmailService {
        SimpleMailMessage message = new SimpleMailMessage();
        message.setTo(savedOrder.getcustomerEmail());
        message.setSubject("Order Confirmation");
-       message.setText("Dear" + updateOrder.getcustomerName()+ "\n\n The status of your order with ID" + updateOrder.getorderId() +
-                        "has been updated to:" + updateOrder.getstatus() + "\n\n Thank you for your patience. \n\n Best regards, \n Stylo ");
-        MailSendException.send(message);
+       message.setText("Dear" + savedOrder.getcustomerName()+ "\n\n The status of your order with ID" + savedOrder.getorderId() +
+                        "has been updated to:" + savedOrder.getstatus() + "\n\n Thank you for your patience. \n\n Best regards, \n Stylo ");
+
+        emailSender.send(message);
     }
 
     public void sendStatusUpdate(Order updatedOrder) {
