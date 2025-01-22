@@ -62,7 +62,7 @@ public class orderServiceImpl implements orderService {
         return savedOrder;
     }
 
-    public Order updateOrderStatus(String orderId, orderStatus newStatus, String description, String updatedBy) {
+    public Order updateorderStatus(String orderId, orderStatus newStatus, String description, String updatedBy) {
         Order order = orderRepository.findById(orderId)
             .orElseThrow(() -> new RuntimeException("Order not found"));
 
@@ -192,5 +192,11 @@ public class orderServiceImpl implements orderService {
     //manage the accepted orders
     public List<Order> getAcceptedOrders() {
         return orderRepository.findByStatus("ACCEPTED");
+    }
+
+    @Override
+    public Order acceptOrder(String orderId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'acceptOrder'");
     }   
 }
