@@ -13,5 +13,5 @@ public interface orderRepository extends MongoRepository<Order, String>{
     List<Order> findByCustId(String custId);
     List<Order> findByStatus(orderStatus status);
     List<Order> findByOrderDateBetween(String startDate, String endDate);
-    List<Order> findByStatus(String Status);
+    List<Order> findByStatusOrder(String StatusOrder);
 }
