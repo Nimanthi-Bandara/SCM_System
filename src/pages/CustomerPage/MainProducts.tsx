@@ -2,20 +2,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import '../../assets/product-banner.png';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import casualTop from '../assets/casual-top.png';
-import cropTop from '../assets/croptop-3.png';
-import sportBra from '../assets/sport-bra.png';
-import hoodie from '../assets/hoodie.png';
+import casualTop from '../../assets/casual-top.png';
+import cropTop from '../../assets/croptop-3.png';
+import sportBra from '../../assets/sport-bra.png';
+import hoodie from '../../assets/hoodie.png';
+
 
 
 const MainProducts = () => {
-
     return (
         <div className="">
             <div id="carouselExample" className="carousel slide">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="../src/assets/product-banner.png" className="d-block w-100" alt="..."/>
+                        <img src="../../../src/assets/product-banner.png" className="d-block w-100" alt="..."/>
                     </div>
                 </div>
             </div>
@@ -203,5 +203,5 @@ const MainProducts = () => {
     )
 }
 
-export default MainProducts;
+export default MainProducts
 
