@@ -7,8 +7,6 @@ import cropTop from '../../assets/croptop-3.png';
 import sportBra from '../../assets/sport-bra.png';
 import hoodie from '../../assets/hoodie.png';
 
-
-
 const MainProducts = () => {
     return (
         <div className="">
