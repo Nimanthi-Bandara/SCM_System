@@ -3,7 +3,7 @@ import '../../App.css'
 const MainLogin = () => {
     return (
 
-            <div className="container-fluid bg-dark py-4 pt-5">
+            <div className="container-fluid bg-dark py-4">
                 <div className="container">
                     <div className="row full-screen justify-content-center align-items-center">
                         <div className="col-6 right py-4">

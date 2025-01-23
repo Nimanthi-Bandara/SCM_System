@@ -49,8 +49,8 @@ const MainHome = () => {
             </div>
             <div className="row">
               <div className="col-4">
-                <p className="fs-6">Agility</p>
-                <img
+                
+                {/* <img
                   src="../../../src/assets/2150762229.jpg"
                   className="w-100 rounded"
                   alt=""
@@ -60,7 +60,7 @@ const MainHome = () => {
                   adapt to dynamic demands, guaranteeing efficiency and
                   precision every step of the way.
                 </p>{" "}
-                {/*These will be changed*/}
+                These will be changed */}
               </div>
               <div className="col-4">
                 <p className="fs-6">Innovation</p>

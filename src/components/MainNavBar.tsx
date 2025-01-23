@@ -51,7 +51,7 @@ const DefaultNavBar = () => (
                 <li className="nav-item">
                   <Nav.Link
                     as={Link}
-                    to="/"
+                    to="/home"
                     className="text-white nav-link active"
                     aria-current="page"
                   >
@@ -109,9 +109,7 @@ const MainNavBar = () => {
     case "manager":
       return <ManagerNavBar />;
     case "customer":
-      return <CustomerNavBar />;
-    case "salesPer":
-      return <SalesPerNavBar />;
+      return <AdminNavBar />;
     case "supplier":
       return <SupplierNavBar />;
     default:

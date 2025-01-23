@@ -10,29 +10,29 @@ import SupOrderPage from "./pages/SupplierPage/SupOrderPage.tsx";
 // import CusOrderTracking from "./pages/CustomerPage/CusOrderTracking.tsx";
 
 function App() {
-    const location = useLocation();
-    const isHomePage = location.pathname === '/';
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/";
 
-    return (
-        <div className={isHomePage ? 'home-page-background' : ''}>
-            <MainNavBar />
-            {/*<Container>*/}
-                <Routes>
-                    <Route path="/" element={<MainHome />} />
-                    <Route path="/about" element={<MainAbout />} />
-                    <Route path="/products" element={<MainProducts />} />
-                    <Route path="/myAccount" element={<MyAccPage />} />
+  return (
+    <div className={location.pathname === "/home" ? "home-page-background" : ""}>
+      {!isLoginPage && <MainNavBar />}
+      {/*<Container>*/}
+      <Routes>
+        <Route path="/" element={<MainLogin />} />
 
-                    <Route path="/login" element={<MainLogin />} />
+        <Route path="/home" element={<MainHome />} />
+        <Route path="/about" element={<MainAbout />} />
+        <Route path="/products" element={<MainProducts />} />
+        <Route path="/myAccount" element={<MyAccPage />} />
 
-                    <Route path="/supplier/orders" element={<SupOrderPage/>} />
-                    {/* <Route path="/customer" element={<CusHomePage/>} />
+        <Route path="/supplier/orders" element={<SupOrderPage />} />
+        {/* <Route path="/customer" element={<CusHomePage/>} />
                     <Route path="/track-package/:orderId" element={<CusOrderTracking/>} /> */}
-                </Routes>
-            {/*</Container>*/}
-            <Footer />
-        </div>
-    );
+      </Routes>
+      {/*</Container>*/}
+      {!isLoginPage && <Footer />}
+    </div>
+  );
 }
 
 export default App;
