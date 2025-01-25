@@ -191,12 +191,12 @@ public class orderServiceImpl implements orderService {
 
     //manage the accepted orders
     public List<Order> getAcceptedOrders() {
-        return orderRepository.findByStatus("ACCEPTED");
+        return orderRepository.findByStatusOrder("ACCEPTED");
     }
 
     @Override
     public Order acceptOrder(String orderId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'acceptOrder'");
-    }   
+    }
 }
