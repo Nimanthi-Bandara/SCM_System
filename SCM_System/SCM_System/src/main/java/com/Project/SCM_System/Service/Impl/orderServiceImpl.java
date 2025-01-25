@@ -196,12 +196,7 @@ public class orderServiceImpl implements orderService {
 
     @Override
     public Order acceptOrder(String orderId) {
-        Optional<Order> orderOpt = orderRepository.findById(orderId);
-        if (orderOpt.isPresent()) {
-            Order order = orderOpt.get();
-            order.setStatusOrder("ACCEPTED");
-            return orderRepository.save(order);
-        }
-        throw new RuntimeException("Order not found");
-    }   
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'acceptOrder'");
+    }
 }

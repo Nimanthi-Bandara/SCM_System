@@ -30,7 +30,6 @@ public class Order {
    private LocalDateTime actualCompletionDate;
    private List<ProductionUpdate> productionUpdates;
    private List<OrderItem> items;
-   private String StatusOrder; // "PENDING", "ACCEPTED", "REJECTED"
 
    public Order() {
         this.orderDate = LocalDateTime.now();
@@ -186,13 +185,5 @@ public class Order {
    public void calculateTotalAmount() {
       this.totalAmount = this.unitPrice * this.quantity;
    }
-
-   public String getStatusOrder(){
-      return StatusOrder;
-     }
-  
-     public void setStatusOrder(String StatusOrder){
-      this.StatusOrder = StatusOrder;
-     }
 
 }
