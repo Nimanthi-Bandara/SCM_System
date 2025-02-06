@@ -1,242 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import "../../App.css";
+import React, { useState } from "react";
+import "./MyAccPage.css";
+import { useNavigate } from 'react-router-dom';
 
-interface UserProfile {
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-}
+const navigate = useNavigate();
 
-// API functions for backend communication
-const api = {
-  fetchUserProfile: async (): Promise<UserProfile> => {
-    try {
-      const response = await fetch('/api/user/profile', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      if (!response.ok) throw new Error('Failed to fetch profile');
-      return response.json();
-    } catch (error) {
-      throw new Error('Error fetching profile data');
-    }
-  },
-
-  updateUserProfile: async (data: UserProfile): Promise<UserProfile> => {
-    try {
-      const response = await fetch('/api/user/profile', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(data)
-      });
-      if (!response.ok) throw new Error('Failed to update profile');
-      return response.json();
-    } catch (error) {
-      throw new Error('Error updating profile data');
-    }
-  },
-
-  logout: async () => {
-    try {
-      const response = await fetch('/api/auth/logout', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      if (!response.ok) throw new Error('Logout failed');
-      localStorage.removeItem('token');
-      window.location.href = '/login';
-    } catch (error) {
-      throw new Error('Error during logout');
-    }
-  }
-};
-
-const MyAccPage = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [tempProfile, setTempProfile] = useState<UserProfile | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [saveError, setSaveError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        setIsLoading(true);
-        const data = await api.fetchUserProfile();
-        setProfile(data);
-        setTempProfile(data);
-      } catch (err) {
-        setError('Failed to load profile data. Please try again later.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProfile();
-  }, []);
-
-  const handleInputChange = (field: keyof UserProfile) => (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    if (tempProfile) {
-      setTempProfile({
-        ...tempProfile,
-        [field]: e.target.value,
-      });
-    }
+const MyAccPage: React.FC = () => {
+  const user = {
+    name: "John Doe",
+    phone: "+94 12 345 6789",
+    email: "john.doe@example.com",
+    address: "5th street, Colombo 03",
   };
-
-  const handleSave = async () => {
-    if (!tempProfile) return;
-    
-    try {
-      setSaveError(null);
-      setIsLoading(true);
-      const updatedProfile = await api.updateUserProfile(tempProfile);
-      setProfile(updatedProfile);
-      setTempProfile(updatedProfile);
-      setIsEditing(false);
-    } catch (err) {
-      setSaveError('Failed to update profile. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleCancel = () => {
-    setTempProfile(profile);
-    setIsEditing(false);
-    setSaveError(null);
-  };
-
-  if (isLoading && !profile) {
-    return (
-      <div className="account-container">
-        <div className="account-card">
-          <div className="loading">Loading profile data...</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="account-container">
-        <div className="error-message">{error}</div>
-      </div>
-    );
-  }
-
-  if (!profile || !tempProfile) return null;
 
   return (
-    <div>   
-    <div className="account-container">
-      <div className="account-card">
-        <div className="card-header">
-          <h2 className="card-title">My Account</h2>
-          <button 
-            className="logout-button"
-            onClick={api.logout}
-            disabled={isLoading}
-          >
-            Logout
-          </button>
-        </div>
-
-        <div className="card-content">
-          {saveError && (
-            <div className="error-message">{saveError}</div>
-          )}
-
-          <div className="form-group">
-            <div className="input-group">
-              <label>Name:</label>
-              <input
-                type="text"
-                value={isEditing ? tempProfile.name : profile.name}
-                onChange={handleInputChange('name')}
-                disabled={!isEditing || isLoading}
-                placeholder="Name"
-              />
+    <div className="user-page-content">
+      <div className="container-fluid pt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="mb-3">
+                <div className="section-title">
+                  <h4 className="section-title mt-4 mb-2">My Orders</h4>
+                </div>
+                <div className="row align-items-center mb-3">
+                  <div className="col-lg-4">
+                    <p className="mb-0">
+                      <strong>Order ID:</strong> ORD123456
+                    </p>
+                  </div>
+                  <div className="col-lg-4">
+                    <button className="btn btn-success btn-sm w-80">
+                      Order Details
+                    </button>
+                  </div>
+                  <div className="col-lg-4">
+                    <button className="btn btn-success btn-sm w-80" onClick={() => navigate('/order-track')}>
+                      Track Order
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
+            {/*user profile*/}
+            <div className="col-lg-4">
+              <div className="profile-card text-center">
+                <div className="profile-header text-center">
+                  <div className="avatar-container">
+                    <img
+                      src="/api/placeholder/150/150"
+                      alt="Profile"
+                      className="profile-avatar"
+                    />
+                    <span className="status-badge"></span>
+                  </div>
+                  <h2 className="profile-name">{user.name}</h2>
+                </div>
 
-            <div className="input-group">
-              <label>Email:</label>
-              <input
-                type="email"
-                value={isEditing ? tempProfile.email : profile.email}
-                onChange={handleInputChange('email')}
-                disabled={!isEditing || isLoading}
-                placeholder="Email"
-              />
+                <div className="profile-info">
+                  <div className="info-item">
+                    <i className="bi bi-person-circle fs-4"></i>
+                    <div className="info-content">
+                      <label>Full Name</label>
+                      <p>{user.name}</p>
+                    </div>
+                  </div>
+                  <div className="info-item">
+                    <i className="bi bi-envelope-fill fs-4"></i>
+                    <div className="info-content">
+                      <label>Phone </label>
+                      <p>{user.phone}</p>
+                    </div>
+                  </div>
+                  <div className="info-item">
+                    <i className="bi bi-envelope-fill fs-4"></i>
+                    <div className="info-content">
+                      <label>Email</label>
+                      <p>{user.email}</p>
+                    </div>
+                  </div>
+                  <div className="info-item">
+                    <i className="bi bi-envelope-fill fs-4"></i>
+                    <div className="info-content">
+                      <label>Address</label>
+                      <p>{user.address}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="input-group">
-              <label>Phone:</label>
-              <input
-                type="tel"
-                value={isEditing ? tempProfile.phone : profile.phone}
-                onChange={handleInputChange('phone')}
-                disabled={!isEditing || isLoading}
-                placeholder="Phone"
-              />
-            </div>
-
-            <div className="input-group">
-              <label>Address:</label>
-              <input
-                type="text"
-                value={isEditing ? tempProfile.address : profile.address}
-                onChange={handleInputChange('address')}
-                disabled={!isEditing || isLoading}
-                placeholder="Address"
-              />
-            </div>
-          </div>
-
-          <div className="button-group">
-            {isEditing ? (
-              <>
-                <button 
-                  className="save-button"
-                  onClick={handleSave} 
-                  disabled={isLoading}
-                >
-                  {isLoading ? 'Saving...' : 'Save'}
-                </button>
-                <button 
-                  className="cancel-button"
-                  onClick={handleCancel}
-                  disabled={isLoading}
-                >
-                  Cancel
-                </button>
-              </>
-            ) : (
-              <button 
-                className="edit-button"
-                onClick={() => setIsEditing(true)}
-                disabled={isLoading}
-              >
-                Edit
-              </button>
-            )}
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
-
 
 export default MyAccPage;

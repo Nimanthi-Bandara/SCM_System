@@ -1,140 +1,61 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../App.css";
-import React, { useState, useEffect } from "react";
-import { Table, Container, Spinner, Alert } from "react-bootstrap";
-import axios from "axios";
+import "./SupOrderPage.css";
 
-interface Order {
-  orderId: string;
-  orderName: string;
-  quantity: number;
-  unitPrice: number;
-  totalPrice: number;
-  deadline: string;
-}
-
-const SupOrderPage: React.FC = () => {
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Function to fetch orders from backend
-  const fetchOrders = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get<Order[]>("/api/orders");  //backend url?
-      setOrders(response.data);
-      setError(null);
-    } catch (err) {
-      setError("Failed to fetch orders. Please try again later.");
-      console.error("Error fetching orders:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-
-  useEffect(() => {
-    // connection to the backend
-    const ws = new WebSocket("ws://backend-url/orders"); //backend url
-
-    ws.onmessage = (event) => {
-      const newOrder = JSON.parse(event.data);
-      setOrders((prevOrders) => {
-        // Check if order already exists
-        const orderExists = prevOrders.some(
-          (order) => order.orderId === newOrder.orderId
-        );
-        if (orderExists) {
-          // Update existing order
-          return prevOrders.map((order) =>
-            order.orderId === newOrder.orderId ? newOrder : order
-          );
-        } else {
-          // Add new order
-          return [...prevOrders, newOrder];
-        }
-      });
-    };
-
-    // Clean up connection
-    return () => {
-      ws.close();
-    };
-  }, []);
-
-  // Fetch initial orders when component mounts
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  // Format currency
-  const formatCurrency = (amount: number): string => {
-    return new Intl.NumberFormat("en-LK", {
-      style: "currency",
-      currency: "LKR",
-    }).format(amount);
-  };
-
-  // Format date
-  const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString("en-LK", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
-  if (loading) {
-    return (
-      <Container
-        className="d-flex justify-content-center align-items-center"
-        style={{ minHeight: "200px" }}
-      >
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </Container>
-    );
-  }
-
-  if (error) {
-    return (
-      <Container>
-        <Alert variant="danger">{error}</Alert>
-      </Container>
-    );
-  }
+const SupOrderPage = () => {
+  const orders = [
+    { id: "ORD001", name: "Product A", quantity: 100, price: 25.99 },
+    { id: "ORD002", name: "Product B", quantity: 50, price: 34.50 },
+    { id: "ORD003", name: "Product C", quantity: 75, price: 19.99 },
+    { id: "ORD004", name: "Product D", quantity: 200, price: 15.75 },
+  ];
 
   return (
-    <Container fluid className="mt-4">
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Order Name</th>
-            <th>Quantity</th>
-            <th>Unit Price</th>
-            <th>Total Price</th>
-            <th>Deadline</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.orderId}>
-              <td>{order.orderId}</td>
-              <td>{order.orderName}</td>
-              <td>{order.quantity}</td>
-              <td>{formatCurrency(order.unitPrice)}</td>
-              <td>{formatCurrency(order.totalPrice)}</td>
-              <td>{formatDate(order.deadline)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
+    <div>
+      <div className="supplier-header">
+        <div className="container-fluid d-flex">
+          <div className="container d-flex">
+            <div className="row">
+              <div className="col-12">
+                <p className="fs-6 text-white fst-italic">
+                  Efficient orders, seamless supply – keeping your business
+                  moving forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid d-flex">
+        <div className="container d-flex">
+          <div className="row">
+            <div className="col-12">
+              <table className="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Order Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Deadline</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((order) => (
+                    <tr key={order.id}>
+                      <td>{order.id}</td>
+                      <td>{order.name}</td>
+                      <td>{order.quantity}</td>
+                      <td>${order.price.toFixed(2)}</td>
+                      <td>${(order.quantity * order.price).toFixed(2)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

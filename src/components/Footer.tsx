@@ -5,56 +5,46 @@ const Footer = () => {
           <footer className="">
               <div className="row">
                   <div className="col-lg-4 col-md-2 mb-3">
-                      <h6 className="text-white py-1 text-center px-5">SECTION</h6>
+                      <h6 className="text-white py-1 text-center px-5">FIND US ON</h6>
                       <ul className="nav flex-column my-2">
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="text-white text-center nav-link p-0">Home</a></li>
+                                                           className="text-white text-center nav-link p-0">Facebook</a></li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="text-white text-center nav-link p-0">Features</a>
+                                                           className="text-white text-center nav-link p-0">Instergram</a>
                           </li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="text-white text-center nav-link p-0">Pricing</a>
+                                                           className="text-white text-center nav-link p-0">Twitter</a>
                           </li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="text-white text-center nav-link p-0">FAQs</a></li>
+                                                           className="text-white text-center nav-link p-0">LinkedIn</a></li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="text-white text-center nav-link p-0">About</a></li>
+                                                           className="text-white text-center nav-link p-0">Tiktok</a></li>
+                                                        
                       </ul>
                   </div>
 
                   <div className="col-lg-4 col-md-2 mb-3">
-                      <h6 className="text-white py-1 text-center px-5">SECTION</h6>
+                      <h6 className="text-white py-1 text-center px-5">CONTACT US</h6>
                       <ul className="nav flex-column">
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Home</a></li>
+                                                           className="nav-link p-0 text-center text-white">+94 71 123 4567 <br/>+94 78 123 3456  </a></li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Features</a>
+                                                           className="nav-link p-0 text-center text-white">+94 11 564 7890</a>
                           </li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Pricing</a>
+                                                           className="nav-link p-0 text-center text-white">info@stylo.com</a>
                           </li>
-                          <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">FAQs</a></li>
-                          <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">About</a></li>
+                          
                       </ul>
                   </div>
 
                   <div className="col-lg-4 col-md-2 mb-3">
-                      <h6 className="text-white py-1 text-center px-5">SECTION</h6>
+                      <h6 className="text-white py-1 text-center px-5">VISIT US</h6>
                       <ul className="nav flex-column">
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Home</a></li>
+                                                           className="nav-link p-0 text-center text-white">No.15, Sarasavi Rd, <br/> Kelaniya, Sri Lanka.</a></li>
                           <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Features</a>
-                          </li>
-                          <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">Pricing</a>
-                          </li>
-                          <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">FAQs</a></li>
-                          <li className="nav-item mb-2"><a href="#"
-                                                           className="nav-link p-0 text-center text-white">About</a></li>
+                                                           className="nav-link p-0 text-center text-white">No.07, 11th street, <br/> Colombo 03, Sri lanka</a></li>
                       </ul>
                   </div>
               </div>

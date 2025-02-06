@@ -1,0 +1,57 @@
+.supplier-header {
+    background-image: url("../src/assets/about-header.jpg");
+    min-height: 30vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: flex-end;
+    padding-bottom: 30px;
+  }
+
+  .supplier-header {
+    position: relative;
+    min-height: 30vh; 
+    display: flex;
+    align-items: flex-end; 
+    padding-bottom: 30px; 
+  }
+
+  /* table */
+  .table {
+    width: 100%;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 12px; 
+    overflow: hidden;
+    margin: 0 auto; 
+  }
+  
+  .table thead {
+    background-color: #f8f9fa; 
+  }
+  
+  .table th {
+    padding: 20px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1rem; 
+  }
+  
+  .table td {
+    padding: 15px 20px;
+    vertical-align: middle;
+    font-size: 0.95rem; 
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1; 
+    cursor: pointer;
+  }
+  
+  .table-responsive {
+    overflow-x: auto; 
+  }

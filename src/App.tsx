@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import MainLogin from "./pages/MainPage/MainLogin.tsx";
 import MyAccPage from "./pages/CustomerPage/MyAccPage.tsx";
 import SupOrderPage from "./pages/SupplierPage/SupOrderPage.tsx";
+import SupAcceptedPage from "./pages/SupplierPage/SupAcceptedPage.tsx";
+import CusOrderTracking from "./pages/CustomerPage/CusOrderTracking.tsx";
 // import CusOrderTracking from "./pages/CustomerPage/CusOrderTracking.tsx";
 
 function App() {
@@ -24,8 +26,11 @@ function App() {
         <Route path="/about" element={<MainAbout />} />
         <Route path="/products" element={<MainProducts />} />
         <Route path="/myAccount" element={<MyAccPage />} />
+        <Route path="/order-track" element={<CusOrderTracking />} />
 
         <Route path="/supplier/orders" element={<SupOrderPage />} />
+        <Route path="/supplier/accepted" element={<SupAcceptedPage />} />
+        
         {/* <Route path="/customer" element={<CusHomePage/>} />
                     <Route path="/track-package/:orderId" element={<CusOrderTracking/>} /> */}
       </Routes>
