@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./MyAccPage.css";
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
+
 
 const MyAccPage: React.FC = () => {
   const user = {
@@ -34,7 +34,7 @@ const MyAccPage: React.FC = () => {
                     </button>
                   </div>
                   <div className="col-lg-4">
-                    <button className="btn btn-success btn-sm w-80" onClick={() => navigate('/order-track')}>
+                    <button className="btn btn-success btn-sm w-80" >
                       Track Order
                     </button>
                   </div>
