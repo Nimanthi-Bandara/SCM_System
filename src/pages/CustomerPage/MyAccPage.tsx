@@ -1,7 +1,5 @@
 // import React, { useState } from "react";
 import "./MyAccPage.css";
-import { useNavigate } from 'react-router-dom';
-
 
 
 const MyAccPage: React.FC = () => {

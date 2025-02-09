@@ -111,6 +111,87 @@ const MainProducts = () => {
                             </div>
                         </div>
                     </div>
+                {/* TOPS SECTION */}
+                <div className="row">
+                        <div className="col-12">
+                            <h2 className="text-green text-center fw-1">Tops</h2>
+                            <p className="text-justified">Tops featured here are designed for every occasion, offering a blend of
+                                style and comfort. Our collection includes casual tees, chic blouses, and trendy crop tops, crafted
+                                with high-quality fabrics to ensure durability and elegance. Each piece is available in a range of
+                                sizes, colors, and patterns, catering to diverse fashion preferences. Whether you're dressing up for
+                                work or lounging at home, our tops promise to elevate your wardrobe effortlessly.</p>
+                        </div>
+                        <div className="col-12 pb-3">
+                            <div className="accordion" id="accordionExample">
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header">
+                                        <button className="accordion-button btn-ligth" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseTopAccordian" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                            <span className="fs-4">Explore Our Range of Premium Tops</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTopAccordian" className="accordion-collapse collapse"
+                                         data-bs-parent="#accordionExample">
+                                        {/*show*/}
+                                        <div className="accordion-body">
+                                            <div className="row">
+                                                <div className="col-lg-3 col-md-4 col-sm-6 pb-4">
+                                                    <div className="card">
+                                                        <div className="imgBox">
+                                                            {/*<img src="../../assets/product-banner.png" className="mouse" alt=""/>*/}
+                                                            <img src={cropTop} className="mouse" alt=""/>
+                                                        </div>
+                                                        <div className="contentBox">
+                                                            <h3 className="fs-4">Crop Tops</h3>
+                                                            <a href="#" className="buy">Browse More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-4 col-sm-6 pb-4">
+                                                    <div className="card">
+                                                        <div className="imgBox">
+                                                            {/*<img src="../../assets/product-banner.png" className="mouse" alt=""/>*/}
+                                                            <img src={sportBra} className="mouse" alt=""/>
+                                                        </div>
+                                                        <div className="contentBox">
+                                                            <h3 className="fs-4">Sport Bras</h3>
+                                                            <a href="#" className="buy">Browse More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-4 col-sm-6 pb-4">
+                                                    <div className="card">
+                                                        <div className="imgBox">
+                                                            {/*<img src="../../assets/product-banner.png" className="mouse" alt=""/>*/}
+                                                            <img src={casualTop} className="mouse" alt=""/>
+                                                        </div>
+                                                        <div className="contentBox">
+                                                            <h3 className="fs-4">Casual Tops</h3>
+                                                            <a href="#" className="buy">Browse More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-4 col-sm-6 pb-4">
+                                                    <div className="card">
+                                                        <div className="imgBox">
+                                                            {/*<img src="../../assets/product-banner.png" className="mouse" alt=""/>*/}
+                                                            <img src={hoodie} className="mouse" alt=""/>
+                                                        </div>
+                                                        <div className="contentBox">
+                                                            <h3 className="fs-4">Hoodies</h3>
+                                                            <a href="#" className="buy">Browse More</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
 
                 {/*  BOTTOMS SECTION  */}
 
